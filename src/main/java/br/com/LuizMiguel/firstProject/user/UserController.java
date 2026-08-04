@@ -3,10 +3,10 @@ package br.com.LuizMiguel.firstProject.user;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Users")
+@RequestMapping("/users")
 public class UserController {
 
-    @GetMapping("/")
+    @PostMapping("/")
     public void create(@RequestBody UserModel userModel){
         System.out.println(userModel.getUsername());
     }
