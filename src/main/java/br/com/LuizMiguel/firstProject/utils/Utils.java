@@ -1,4 +1,4 @@
-package Utils;
+package br.com.LuizMiguel.firstProject.utils;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;

@@ -1,6 +1,6 @@
 package br.com.LuizMiguel.firstProject.task;
 
-import Utils.Utils;
+import br.com.LuizMiguel.firstProject.utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
