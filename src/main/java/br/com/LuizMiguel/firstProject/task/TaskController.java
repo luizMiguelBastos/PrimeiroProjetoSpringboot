@@ -1,5 +1,6 @@
 package br.com.LuizMiguel.firstProject.task;
 
+import Utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,10 +45,12 @@ public List<TaskModel> list(HttpServletRequest request){
 
 @PutMapping ("/{id}")
     public TaskModel update (@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request){
-        var idUser = request.getAttribute("idUser");
-        taskModel.setIdUser((UUID) idUser);
-        taskModel.setId(id);
-        return this.taskReposity.save(taskModel);
+
+        var task = this.taskReposity.findById(id).orElse(null);
+
+    Utils.copyNoNullProperties(taskModel, task);
+
+    return this.taskReposity.save(task);
 }
 
 }
