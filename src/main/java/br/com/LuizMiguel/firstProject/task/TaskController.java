@@ -44,13 +44,24 @@ public List<TaskModel> list(HttpServletRequest request){
 }
 
 @PutMapping ("/{id}")
-    public TaskModel update (@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request){
-
+    public ResponseEntity update (@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request){
         var task = this.taskReposity.findById(id).orElse(null);
 
-    Utils.copyNoNullProperties(taskModel, task);
+        if (task == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Tarefa não encontrada");
+        }
 
-    return this.taskReposity.save(task);
+        var idUser = request.getAttribute("idUser");
+
+        if (!task.getIdUser().equals(idUser)){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Usuario nao tem permissão para alterar essa tarefa");
+        }
+
+    Utils.copyNoNullProperties(taskModel, task);
+    var taskUpated = this.taskReposity.save(task);
+    return ResponseEntity.ok().body(taskUpated);
 }
 
 }
