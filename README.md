@@ -19,7 +19,7 @@ API REST para gerenciamento de tarefas com autenticação de usuários, constru�
 
 Aplicação back-end que permite o cadastro de usuários e o gerenciamento de tarefas pessoais (criação, listagem e edição), garantindo que **cada usuário só possa visualizar e alterar as próprias tarefas**.
 
-O projeto foi desenvolvido durante o **Minicurso de Java da Rocketseat**, como estudo prático dos fundamentos do ecossistema Spring. A partir da base do curso, o código foi evoluído com melhorias próprias, como a **containerização com Docker multi-stage build** e o **deploy em produção no Render**.
+O projeto foi desenvolvido durante o **Minicurso de Java da Rocketseat**, como estudo prático dos fundamentos do ecossistema Spring.
 
 Conceitos aplicados na prática:
 
